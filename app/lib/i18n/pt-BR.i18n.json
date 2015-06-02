@@ -1,0 +1,10 @@
+{
+	"Order": "Pedido",
+	"Customer": "Cliente",
+	"Date": "Data",
+	"Phone": "Telefone",
+	"Cell": "Celular",
+	"Price": "Preço",
+	"Cake": "Bolo",
+	"Candy": "Doce"
+}

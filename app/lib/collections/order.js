@@ -1,0 +1,1 @@
+OrderCollection = new Mongo.Collection('order');

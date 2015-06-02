@@ -1,0 +1,130 @@
+<template name="Order">
+	<form class="form-horizontal" id="orderForm" novalidate>
+		<fieldset>
+			<!-- Form Name -->
+			<legend>{{_ "Order"}}</legend>
+			<div class="row">
+				<div class="col-md-4">
+
+					<!-- Text input-->
+					<div class="control-group">
+						<label class="col-md-3 control-label" for="name">{{_ "Customer"}}</label>  
+						<div class="col-md-9 controls">
+							<input id="customer" name="customer" type="text"  class="form-control input-md" required>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<!-- Text input-->
+					<div class="control-group">
+						<label class="col-md-3 control-label" for="date">{{_ "Data"}}</label>  
+						<div class="col-md-9 controls">
+							<div class="input-group">
+								<input id="date" name="date" type="text"  class="form-control input-md datetime" data-converter="date" required>
+								<span class="input-group-addon">
+									<span class="glyphicon glyphicon-calendar"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="col-md-4">
+					<!-- Text input-->
+					<div class="control-group">
+						<label class="col-md-3 control-label" for="phone">{{_ "Phone"}}</label>  
+						<div class="col-md-9 controls">
+							<input id="phone" name="phone" type="text"  class="form-control input-md phone">
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<!-- Text input-->
+					<div class="control-group">
+						<label class="col-md-3 control-label" for="cell">{{_ "Cell"}}</label>  
+						<div class="col-md-9 controls">
+							<input id="cell" name="cell" type="text"  class="form-control input-md phone">
+
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<!-- Text input-->
+					<div class="control-group">
+						<label class="col-md-3 control-label" for="price">{{_ "Price"}}</label>  
+						<div class="col-md-9 controls">
+							<div class="input-group">
+								<input id="price" name="price" type="number" step="any"  class="form-control input-md" data-converter="float" required>
+								<span class="input-group-addon">
+									<span class="glyphicon glyphicon-usd"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<!-- Select Multiple -->
+					<div class="control-group">
+						<label class="col-md-3 control-label" for="items">{{_ "Items"}}</label>
+						<div class="col-md-9 controls">
+							<select id="items" name="items" class="form-control" multiple="multiple">
+								<option value="1">{{_ "Cake"}}</option>
+								<option value="2">{{_ "Candy"}}</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<button type="submit" id="save" class="btn btn-sm btn-primary pull-right">
+						<span class="glyphicon glyphicon-file" aria-hidden="true"></span> Save</button>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+		<div class="row margin-md">
+			<table class="table table-hover orders">
+				<thead>
+					<tr>
+						<th>Customer</th>
+						<th>Date</th>
+						<th>Phone</th>
+						<th>Cell</th>
+						<th>Price</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#if isEmpty}}
+						<tr colspan="6">
+							<td>No orders found.</td>
+						</tr>
+					{{else}}
+						{{#each getOrders}}
+							<tr class="{{selectedClass}}">
+								<td>{{customer}}</td>
+								<td>{{date}}</td>
+								<td>{{phone}}</td>
+								<td>{{cell}}</td>
+								<td>{{price}}</td>
+								<td>
+									<div class="btn-group" role="group" aria-label="...">
+										<button type="button" id="edit" class="btn btn-sm btn-default">
+											<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+										</button>
+										<button type="button" id="remove" class="btn btn-sm btn-default">
+											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+										</button>
+									</div>
+								</td>
+							</tr>
+						{{/each}}
+					{{/if}}
+				</tbody>
+			</table>
+		</div>
+	</template>
