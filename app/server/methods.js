@@ -28,5 +28,20 @@ Meteor.methods({
 			_id: selectedOrder,
 			createdBy: currentUserId
 		});
+	},
+	'totalByPrice': function () {
+		var currentUserId = Meteor.userId();
+
+		var pipeline = [
+			{
+				$group: {
+					_id: null,
+					total: {
+						$sum: "$price"
+					}
+				}
+			}
+];
+		return OrderCollection.aggregate(pipeline);
 	}
 });

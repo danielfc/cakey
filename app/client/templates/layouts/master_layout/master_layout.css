@@ -1,3 +1,7 @@
 .enter {
 	margin-top: 80px;
 }
+
+.no-padding {
+	padding: 0 !important;
+}

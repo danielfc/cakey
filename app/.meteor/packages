@@ -17,3 +17,6 @@ momentjs:moment
 meteorhacks:aggregate
 stevezhu:lodash
 tap:i18n
+accounts-google
+accounts-facebook
+maazalik:highcharts
