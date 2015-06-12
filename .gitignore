@@ -1,1 +1,3 @@
 *.glue
+/config
+/build
